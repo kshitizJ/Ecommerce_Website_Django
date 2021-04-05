@@ -14,6 +14,9 @@
     {% load static %}
     {% block content %}
     <div class="row">
+        <div class="col-12">
+            <h1 class="text-center">STORE</h1>
+        </div>
         {% for product in products %}
         <div class="col-lg-4">
             <img class="thumbnail" src="{{product.imageURL}}">
@@ -23,7 +26,7 @@
 
                 <button class="btn btn-outline-secondary add-btn">Add to Cart</button>
                 <a class="btn btn-outline-success" href="#">View</a>
-                <h4 style="display: inline-block; float: right"><strong>${{product.price}}</strong></h4>
+                <h4 style="display: inline-block;"><strong>${{product.price}}</strong></h4>
             </div>
         </div>
         {% endfor %}
