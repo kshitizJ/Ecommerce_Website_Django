@@ -38,4 +38,3 @@ def checkout(request):
 
     context = {'items': items, 'order': order}
     return render(request, 'store/Checkout.html', context)
-cache
