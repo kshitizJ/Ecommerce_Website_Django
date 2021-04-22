@@ -20,6 +20,7 @@ def auth_middleware(get_response):
         # Sessions are the mechanism used by Django (and most of the Internet) for keeping track of the "state" between the site and a particular browser. Sessions allow you to store arbitrary data per browser, and have this data available to the site whenever the browser connects.
 
         # request.session.get returns true if the user is logged in, else it will be redirect to the login page.
+        print(request.session.get('customer'))
         if not request.session.get('customer'):
             return redirect(f'login?return_url={returnUrl}')
 
