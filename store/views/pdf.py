@@ -14,10 +14,8 @@ class Pdf(View):
         customer = request.session.get('customer')
         orders = Order.get_orders_by_customer(customer)
         template_path = 'pdf.html'
-        ids = list(request.session.get('cart').keys())
-        products = Product.get_products_by_id(ids)
-        context = {'request': request, 'customer': customer,
-                   'orders': orders, 'products': products}
+        context = {'customer': customer,
+                   'orders': orders}
         # Create a Django response object, and specify content_type as pdf
         response = HttpResponse(content_type='application/pdf')
         # if we want to download then our reponse variable will look like this inside the bracket (response['Content-Disposition'] = 'attachment; filename="invoice.pdf"') else if we want to pdf to only open in browser than our response variable will look like below
