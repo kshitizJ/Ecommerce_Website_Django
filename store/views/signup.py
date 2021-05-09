@@ -24,6 +24,7 @@ class Signup(View):
         }
         error_message = None
 
+        #object creation
         customer = Customer(first_name=first_name,
                             last_name=last_name,
                             phone=phone,
@@ -33,7 +34,7 @@ class Signup(View):
 
         if not error_message:
             # print(first_name, last_name, phone, email, password)
-            customer.password = make_password(customer.password)
+            customer.password = make_password(customer.password)#to hash the password
             customer.register()
             return redirect('homepage')
         else:
@@ -42,7 +43,7 @@ class Signup(View):
                 'values': value
             }
             return render(request, 'signup.html', data)
-
+    #Vaidations
     def validateCustomer(self, customer):
         error_message = None
         if (not customer.first_name):

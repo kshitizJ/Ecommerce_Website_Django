@@ -11,6 +11,7 @@ class Customer(models.Model):
     def register(self):
         self.save()
 
+    #to return the customer object based on the email provided
     @staticmethod
     def get_customer_by_email(email):
         try:
@@ -18,7 +19,7 @@ class Customer(models.Model):
         except:
             return False
 
-
+    #to check if the entered email is already registered into our database,if yes then show the required error message
     def isExists(self):
         if Customer.objects.filter(email = self.email):
             return True

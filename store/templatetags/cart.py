@@ -1,6 +1,6 @@
 from django import template
 
-register = template.Library()
+register = template.Library() #all tags and filters are registered here
 
 
 @register.filter(name='is_in_cart')
@@ -20,12 +20,12 @@ def cart_quantity(product, cart):
             return cart.get(id)
     return 0
 
-
+#to display the total price of a product
 @register.filter(name='price_total')
 def price_total(product, cart):
     return product.price * cart_quantity(product, cart)
 
-
+#to display the sum total of the orders
 @register.filter(name='total_cart_price')
 def total_cart_price(products, cart):
     sum = 0

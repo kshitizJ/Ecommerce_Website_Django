@@ -16,7 +16,8 @@ class Product(models.Model):
     @staticmethod
     def get_all_products():
         return Product.objects.all()
-
+    
+    #To diplay product for a particular category
     @staticmethod
     def get_all_products_by_categoryid(category_id):
         if category_id:

@@ -16,7 +16,7 @@ class Login(View):
         customer = Customer.get_customer_by_email(email)
         error_message = None
         if customer:
-            flag = check_password(password, customer.password)
+            flag = check_password(password, customer.password)#Returns true if the password entered by user is correct
             if flag:
                 request.session['customer'] = customer.id
 
@@ -31,7 +31,7 @@ class Login(View):
             error_message = 'Email or Password invalid !!'
 
         return render(request, 'login.html', {'error': error_message})
-
+#After logging out ,the user is directed back to the login page
 def logout(request):
     request.session.clear()
     return redirect('login')
