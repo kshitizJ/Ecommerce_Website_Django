@@ -2,6 +2,7 @@
 
 
 {% block content %}
+<!--Loading our filters that are present in templatetags folder-->
 {% load cart %}
 {% load custom_filter %}
 <div class="container">
@@ -23,7 +24,7 @@
                 
                 {% for product in products %}
                 <tr>
-                    <td>{{forloop.counter}}</td>
+                    <td>{{forloop.counter}}</td> <!--indicates serial no from 1-->
                     <td><img style="height: 80px;" class="rounded-circle" src="{{product.image.url}}" alt=""></td>
                     <td>{{product.name}}</td>
                     <td>{{product.price|currency}}</td>
@@ -54,6 +55,7 @@
 <!-- modal -->
 
   <!-- Modal -->
+  <!--Checkout form -->
   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -63,7 +65,7 @@
           </h5>
           <hr>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
+            <span aria-hidden="true">&times;</span><!--'x' button-->
           </button>
         </div>
         <div class="modal-body">

@@ -18,7 +18,7 @@ class Order(models.Model):
 
     def placeOrder(self):
         self.save()
-
+    #To display the orders for the customer,the latest order would be displayed first
     @staticmethod
     def get_orders_by_customer(customer_id):
         return Order.objects.filter(customer=customer_id).order_by('-date')

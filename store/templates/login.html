@@ -19,7 +19,7 @@
             <form action="/login" method="POST">
                 
                 {% csrf_token %}
-
+                <!--error message to be displayed after the validation-->
                 {% if error%}
                 <div class="alert alert-danger" role="alert">
                     {{error}}

@@ -2,7 +2,7 @@
 
 {% block content %}
 
-{% load cart %}
+{% load cart %} <!--loads the filter-->
 {% load custom_filter %}
 <!-- body -->
 <div class="container-fluid mt-3">
@@ -17,7 +17,7 @@
 			<div class="list-group">
 
 				<a href="/" class="list-group-item list-group-item-action">All Products</a>
-
+				<!--renders the product on the basis of the category-->
 				{% for category in categories %}
 				<a href="/?category={{category.id}}"
 					class="list-group-item list-group-item-action">{{category.name}}</a>
@@ -39,15 +39,16 @@
 					</div>
 
 					<div class="card-footer p-0 no-gutters">
-
+						<!--If the cart consists of items ,then increase or decrease the quantity of product-->
 						{% if product|is_in_cart:request.session.cart %}
 						<div class="row no-gutters">
-							<form action="/#{{product.id}}" class="col-2 " method="post">
+							<form action="/#{{product.id}}" class="col-2 " method="post"><!--prevents reloading of the page-->
 								{% csrf_token %}
 								<input hidden type="text" name='product' value='{{product.id}}'>
 								<input hidden type="text" name='remove' value='True'>
 								<input type="submit" value=" - " class="btn btn-block btn-light border-right">
 							</form>
+							<!--displays no of items in cart eg. 2 in cart-->
 							<div class="text-center col">{{product|cart_quantity:request.session.cart}} in Cart</div>
 							<form action="/#{{product.id}}" class="col-2 " method="post">
 								{% csrf_token %}

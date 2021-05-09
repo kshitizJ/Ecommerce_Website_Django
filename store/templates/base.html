@@ -51,11 +51,11 @@
       <ul class=" navbar-nav my-2 my-lg-0">
         <li class="nav-item ">
           <a class="nav-link" href="/cart">Cart
-            <span class="badge badge-info">{{request.session.cart.keys|length}}</span>
+            <span class="badge badge-info">{{request.session.cart.keys|length}}</span><!--To display the no of products in the cart,length is used-->
             <span class="sr-only">(current)</span></a>
         </li>
         {% if request.session.customer %}
-
+        <!--If the user is logged in,then order and logout option to be displayed on the navbar-->
         <li class="nav-item ">
           <a class="nav-link" href="/orders">Orders<span class="sr-only">(current)</span></a>
         </li>
@@ -63,6 +63,7 @@
           <a class="nav-link" href="/logout">Logout<span class="sr-only">(current)</span></a>
         </li>
         {% else %}
+        <!--If no user is logged in,navbar dispalys signup and login button-->
         <li class="nav-item ">
           <a class="nav-link" href="/signup">Signup<span class="sr-only">(current)</span></a>
         </li>
