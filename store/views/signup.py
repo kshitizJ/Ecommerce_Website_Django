@@ -48,20 +48,20 @@ class Signup(View):
         error_message = None
         if (not customer.first_name):
             error_message = "First Name Required !!"
-        elif len(customer.first_name) < 4:
-            error_message = 'First Name must be 4 char long or more'
+        elif len(customer.first_name) < 25:
+            error_message = 'First Name must be 25 char long or more'
         elif not customer.last_name:
             error_message = 'Last Name Required'
-        elif len(customer.last_name) < 4:
-            error_message = 'Last Name must be 4 char long or more'
+        elif len(customer.last_name) < 25:
+            error_message = 'Last Name must be 25 char long or more'
         elif not customer.phone:
             error_message = 'Phone Number required'
         elif len(customer.phone) < 10:
             error_message = 'Phone Number must be 10 char Long'
-        elif len(customer.password) < 6:
-            error_message = 'Password must be 6 char long'
-        elif len(customer.email) < 5:
-            error_message = 'Email must be 5 char long'
+        elif len(customer.password) < 15:
+            error_message = 'Password must be 15 char long'
+        elif len(customer.email) < 50:
+            error_message = 'Email must be 50 char long'
         elif customer.isExists():
             error_message = 'Email Address Already Registered..'
         # saving
